@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan EMI Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Loan EMI Management Dashboard</h1>
+    </header>
+
+    <main>
+		<!-- Stats Section -->
+		<section class="card" id="statsCard">
+		    <h2>Dashboard Stats</h2>
+		    <div id="statsContainer">
+		        <p>Total Customers: <span id="totalCustomers">0</span></p>
+		        <p>Total Loans: <span id="totalLoans">0</span></p>
+		        <p>Total EMIs: <span id="totalEMIs">0</span></p>
+		        <p>Paid EMIs: <span id="paidEMIs">0</span></p>
+		        <p>Unpaid EMIs: <span id="unpaidEMIs">0</span></p>
+		    </div>
+		    <button onclick="loadStats()">Refresh Stats</button>
+		</section>
+		
+        <!-- Customer Section -->
+        <section class="card">
+            <h2>Create Customer</h2>
+            <div class="form-group">
+                <input type="text" id="customerName" placeholder="Name">
+                <input type="email" id="customerEmail" placeholder="Email">
+                <button onclick="createCustomer()">Create</button>
+            </div>
+        </section>
+
+        <!-- Loan Section -->
+        <section class="card">
+            <h2>Create Loan</h2>
+            <div class="form-group">
+                <input type="text" id="loanType" placeholder="Loan Type">
+                <input type="number" id="principalAmount" placeholder="Principal Amount">
+                <input type="number" id="tenureMonths" placeholder="Tenure Months">
+                <input type="number" id="interestRate" placeholder="Interest Rate (%)">
+                <input type="number" id="customerId" placeholder="Customer ID">
+                <button onclick="createLoan()">Create</button>
+            </div>
+        </section>
+
+        <!-- Loans Display -->
+        <section class="card">
+            <h2>Loans & EMIs</h2>
+            <button onclick="getAllLoans()">Load Loans</button>
+            <div id="loansContainer"></div>
+        </section>
+		<!-- EMI Summary Chart -->
+		<section class="card">
+		    <h2>EMI Summary</h2>
+		    <canvas id="emiChart" width="300" height="200"></canvas>
+		    <button onclick="loadEMIChart()">Load EMI Chart</button>
+		</section>
+
+		<!-- Add this inside <head> to include Chart.js -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Loan EMI System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
